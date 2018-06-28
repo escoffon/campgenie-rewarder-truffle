@@ -28,13 +28,13 @@ the Truffle migrations contract, and contracts used by the test harness.
 
 The `migrations` directory contains three migration files:
 
-- `001_initial_migration.js` sets up the migrations support by deploying a +Migrations+ contract.
+- `001_initial_migration.js` sets up the migrations support by deploying a `Migrations` contract.
 - `002_deploy_contracts.js` deploys the sample rewarder contract, using a test version of the CampGenie
   token contract.
 - `003_adjust_balances.js` sets up the correct balances by transferring all the tokens in the token
   contract to the rewarder contract's address.
 
-There is also a sample upgrade migration file `upgrade_contract.js-sample` whose is described later.
+There is also a sample upgrade migration file `upgrade_contract.js-sample` whose usage is described later.
 
 ## Tests
 

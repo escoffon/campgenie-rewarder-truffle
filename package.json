@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/campgenie/campgenie-rewarder-truffle.git"
+    "url": "https://github.com/escoffon/campgenie-rewarder-truffle.git"
   },
   "keywords": [
     "solidity",
@@ -24,9 +24,9 @@
   "author": "Emil Scoffone <emil@scoffone.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/campgenie/campgenie-rewarder-truffle/issues"
+    "url": "https://github.com/escoffon/campgenie-rewarder-truffle/issues"
   },
-  "homepage": "https://github.com/campgenie/campgenie-rewarder-truffle",
+  "homepage": "https://github.com/escoffon/campgenie-rewarder-truffle",
   "dependencies": {},
   "devDependencies": {
     "campgenie-base-contracts": "git+https://github.com/escoffon/campgenie-base-contracts.git",
