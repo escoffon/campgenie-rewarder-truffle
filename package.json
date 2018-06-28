@@ -1,0 +1,37 @@
+{
+  "name": "campgenie-rewarder-truffle",
+  "version": "0.1.0",
+  "description": "Truffle box with a sample implementation of a CampGenie rewarder contract",
+  "scripts": {
+    "compile": "scripts/compile.sh",
+    "migrate": "scripts/migrate.sh",
+    "test": "scripts/test.sh",
+    "console": "truffle console",
+    "ganache": "scripts/ganache.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/campgenie/campgenie-rewarder-truffle.git"
+  },
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "smart",
+    "contracts",
+      "truffle",
+    "campgenie"
+  ],
+  "author": "Emil Scoffone <emil@scoffone.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/campgenie/campgenie-rewarder-truffle/issues"
+  },
+  "homepage": "https://github.com/campgenie/campgenie-rewarder-truffle",
+  "dependencies": {},
+  "devDependencies": {
+    "campgenie-base-contracts": "git+https://github.com/escoffon/campgenie-base-contracts.git",
+    "ganache-cli": "^6.1.3",
+    "lodash": "^4.17.10",
+    "truffle": "^4.1.12"
+  }
+}

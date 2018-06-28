@@ -1,0 +1,15 @@
+{
+  "ignore": [
+    ".gitignore"
+  ],
+  "commands": {
+    "Compile contracts": "scripts/compile.sh",
+    "Migrate contracts": "scripts/migrate.sh",
+    "Test contracts": "scripts/test.sh",
+    "Console": "node_modules/.bin/truffle console",
+    "Run Ganache": "scripts/ganache.sh"
+  },
+  "hooks": {
+    "post-unpack": "npm install"
+  }
+}
