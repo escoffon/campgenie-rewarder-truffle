@@ -1,7 +1,8 @@
-let Migrations = artifacts.require("./contracts/Migrations.sol");
+let Migrations = artifacts.require("./Migrations.sol");
 
 module.exports = function(deployer, network, accounts) {
-    deployer.deploy(Migrations)
-	.then(function() {
+    deployer
+	.deploy(Migrations)
+	.then(function(instance) {
 	      });
 };

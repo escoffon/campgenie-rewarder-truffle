@@ -1,0 +1,39 @@
+let CGRewarderSample = artifacts.require("./CGRewarderSample.sol");
+let StandardToken = artifacts.require("./StandardToken.sol");
+
+module.exports = function(deployer, network, accounts) {
+    let tokenizer;
+    let old_rewarder;
+    let old_balance;
+    let new_rewarder;
+
+    deployer
+	.then(function() {
+		  old_rewarder = CGRewarderSample.at(CGRewarderSample.address);
+		  deployer.logger.log("Original CGRewarder at " + old_rewarder.address);
+		  return old_rewarder.tokenizer.call();
+	      })
+	.then(function(ta) {
+		  tokenizer = StandardToken.at(ta);
+		  return tokenizer.balanceOf.call(old_rewarder.address);
+	      })
+	.then(function(b) {
+		  old_balance = b;
+		  deployer.logger.log("Original CGRewarder balance: " + old_balance.toNumber());
+		  return deployer.deploy(CGRewarderSample, tokenizer.address);
+	      })
+	.then(function(instance) {
+		  new_rewarder = instance;
+		  return old_rewarder.upgrade(instance.address);
+	      })
+	.then(function(r) {
+		  deployer.logger.log("Upgraded CGRewarder to " + new_rewarder.address);
+		  return tokenizer.balanceOf.call(new_rewarder.address);
+	      })
+	.then(function(b) {
+		  deployer.logger.log("Upgraded CGRewarder balance: " + b.toNumber());
+	      })
+	.catch(function(e) {
+		   deployer.logger.log("error: " + e);
+	       });
+};

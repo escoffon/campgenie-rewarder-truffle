@@ -1,5 +1,5 @@
-let CampGenieTokenTester = artifacts.require("./contracts/mocks/CampGenieTokenTester.sol");
-let CGRewarderSample = artifacts.require("./contracts/CGRewarderSample.sol");
+let CampGenieTokenTester = artifacts.require("./mocks/CampGenieTokenTester.sol");
+let CGRewarderSample = artifacts.require("./CGRewarderSample.sol");
 
 let initialBalance = 2000000;
 let decimals = 2;
@@ -10,12 +10,13 @@ module.exports = function(deployer, network, accounts) {
 	.then(function() {
 		  if ((network == 'development') || (network == 'localgeth'))
 		  {
-		      return CampGenieTokenTester.new(initialBalance, decimals);
+		      return deployer.deploy(CampGenieTokenTester, initialBalance, decimals);
 		  }
 		  else
 		  {
 		      // Here we need to resolve with an external CampGenieToken contract
 
+		      // return CampGenieTokenTester.at(cg_token_tester_address);
 		      return null;
 		  }
 	      })
@@ -26,8 +27,8 @@ module.exports = function(deployer, network, accounts) {
 	.then(function() {
 		  return deployer.deploy(CGRewarderSample, tokenizer.address);
 	      })
-	.then(function() {
-		  deployer._rewarder_address = CGRewarderSample.address;
+	.then(function(i) {
+		  deployer._rewarder_address = i.address;
 		  deployer.logger.log("Deployed CGRewarderSample at " + CGRewarderSample.address);
 	      })
 	.catch(function(e) {
